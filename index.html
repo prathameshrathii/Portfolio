@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prathamesh Rathi Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: a finance portfolio read by recruiters and admissions panels
+   IDEA an audit-report contents page: every project is a line item with its one key figure
+   PICTURE the 12-tile ledger of projects, each headed by its finding figure, grouped by discipline
+   COLOUR white ground, ink #101418, slate, one warm-yellow slab behind the headline figure only
+   TYPE Manrope 800 display + Manrope text
+   LAYOUT laptop: name and credentials across the top, ledger full width beneath; phone: stacked tiles */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#101418);--ink:light-dark(#101418,#eef1f4);--slate:light-dark(#4a5563,#a7b0bc);--rule:light-dark(#e3e6ea,#2a3038);--panel:light-dark(#f6f7f9,#171c22);--yel:#ffd84a;--link:light-dark(#0b4f8a,#8cc4ff)}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:24px}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Manrope,system-ui,sans-serif;overflow-x:clip}
+a{color:var(--link)}
+img{max-width:100%;display:block}
+.band{padding-block:clamp(28px,4vw,56px);padding-left:max(5vw,16px);padding-right:max(5vw,16px)}
+.wrap{max-width:1240px;margin:0 auto}
+header.band{border-top:8px solid var(--ink);padding-bottom:20px}
+.top{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:32px;align-items:end}
+h1{font-size:clamp(34px,5vw,52px);line-height:1.05;letter-spacing:-.02em;margin:0 0 14px;font-weight:800;text-wrap:balance}
+.lead{font-size:17px;max-width:62ch;margin:0;color:var(--slate)}
+.who{font-weight:700;font-size:17px;margin:0 0 8px}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:2px solid var(--ink)}
+.facts div{padding:12px 12px 4px 0}
+.facts b{display:block;font-size:clamp(30px,4vw,44px);font-weight:800;line-height:1;letter-spacing:-.02em}
+.facts b.hl{background:var(--yel);color:#101418;display:inline-block;padding:2px 8px;margin-left:-8px}
+.facts span{display:block;font-size:14px;color:var(--slate);margin-top:4px}
+.contact{margin-top:14px;font-size:15px;display:flex;flex-wrap:wrap;gap:6px 18px}
+.ledger{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px}
+.group h2{font-size:15px;font-weight:700;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.tile{display:block;text-decoration:none;color:inherit;padding:12px 0 14px;border-bottom:1px solid var(--rule)}
+.tile:hover .t,.tile:focus-visible .t{text-decoration:underline}
+.tile:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
+.n{font-size:13px;color:var(--slate);font-variant-numeric:tabular-nums}
+.t{font-weight:700;font-size:16px;line-height:1.3;margin:2px 0 6px}
+.fig{font-size:clamp(24px,2.6vw,32px);font-weight:800;line-height:1.05;letter-spacing:-.02em;white-space:nowrap}
+.cap{font-size:14px;color:var(--slate);line-height:1.4;margin-top:4px}
+.sec{border-top:1px solid var(--rule)}
+.sec h2{font-size:clamp(26px,3vw,34px);line-height:1.1;letter-spacing:-.02em;margin:0 0 6px;font-weight:800}
+.sec>.wrap>p{color:var(--slate);margin:0 0 20px;max-width:70ch}
+.proj{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr) minmax(0,.8fr);gap:28px;padding:22px 0;border-top:1px solid var(--rule)}
+.proj h3{font-size:20px;line-height:1.2;margin:2px 0 4px;font-weight:800}
+.meta{font-size:14px;color:var(--slate)}
+.proj p{margin:0 0 10px}
+.proj ul{margin:0;padding-left:18px}
+.proj li{margin-bottom:6px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.tags span{font-size:13px;background:var(--panel);border:1px solid var(--rule);padding:3px 8px;border-radius:4px}
+.dl a{display:flex;align-items:center;gap:8px;min-height:44px;padding:8px 12px;margin-bottom:8px;border:1px solid var(--rule);border-radius:6px;text-decoration:none;font-weight:600;font-size:14px;background:var(--panel);color:var(--ink)}
+.dl a:hover{border-color:var(--ink)}
+.dl a:focus-visible{outline:3px solid var(--yel)}
+.dl small{margin-left:auto;color:var(--slate);font-weight:500;white-space:nowrap}
+.shot{margin-top:14px;border:1px solid var(--rule);background:#fff}
+.note{font-size:13px;color:var(--slate)}
+.skills{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.skills h3{font-size:15px;margin:0 0 6px;padding-bottom:6px;border-bottom:2px solid var(--ink)}
+.skills p{margin:0;font-size:15px;color:var(--slate)}
+footer{border-top:8px solid var(--ink)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;align-items:baseline}
+footer h2{margin:0;font-size:24px;font-weight:800}
+@media(max-width:1000px){.ledger{grid-template-columns:repeat(2,minmax(0,1fr))}.skills{grid-template-columns:repeat(2,minmax(0,1fr))}.proj{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr)}.proj .dl{grid-column:1/-1;display:grid;grid-template-columns:repeat(auto-fit,minmax(15em,1fr));gap:0 10px}}
+@media(max-width:760px){.top{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:600px){.ledger,.skills{grid-template-columns:minmax(0,1fr)}.proj{grid-template-columns:minmax(0,1fr);gap:12px}.facts b{font-size:30px}}
+@media(prefers-reduced-motion:no-preference){.tile{transition:background .15s}.tile:hover{background:var(--panel)}}
+</style>
+</head>
+<body>
+<header class="band">
+ <div class="wrap top">
+  <div>
+   <p class="who">Prathamesh Rathi &middot; BBA (Finance) &middot; CFA Level I cleared, Level II candidate (May 2027) &middot; FMVA</p>
+   <h1>Twelve finance projects built on live Indian market data</h1>
+   <p class="lead">Equity research, transactions, credit, rates, derivatives and quant work. Every model is built from primary filings and market data (annual reports, offer documents, NSE, CCIL, RBI) and checked against what actually happened where the outcome is now known.</p>
+   <div class="contact"><span>prathameshrathi2005@gmail.com</span><a href="https://linkedin.com/in/prathameshrathi7" target="_blank" rel="noopener">linkedin.com/in/prathameshrathi7</a></div>
+  </div>
+  <div class="facts">
+   <div><b class="hl">12</b><span>projects</span></div>
+   <div><b>6</b><span>disciplines</span></div>
+   <div><b>7</b><span>companies and markets</span></div>
+  </div>
+ </div>
+</header>
+
+<section class="band" style="padding-top:12px">
+ <div class="wrap ledger" id="ledger"></div>
+</section>
+
+<div id="details"></div>
+
+<section class="band sec" id="skills">
+ <div class="wrap">
+  <h2>Toolkit</h2>
+  <p>Methods and tools used across the twelve projects.</p>
+  <div class="skills">
+   <div><h3>Valuation</h3><p>Three-statement modelling, DCF (perpetuity and exit multiple), trading comps, football field, reverse DCF, sum-of-the-parts thinking.</p></div>
+   <div><h3>Transactions</h3><p>LBO returns and debt schedules, merger accretion/dilution, purchase price allocation, swap ratios, IPO offer-structure and red-flag analysis.</p></div>
+   <div><h3>Credit, rates and derivatives</h3><p>Rating scorecards, holdco/structural subordination, stress tests, yield-curve fitting and bootstrapping, duration and convexity, Black-Scholes, binomial trees, implied volatility.</p></div>
+   <div><h3>Tools</h3><p>Excel to CFI (FMVA) standard, Python (pandas, NumPy, SciPy, scikit-learn, matplotlib), Power BI with DAX, PowerPoint pitchbooks, long-form research writing.</p></div>
+  </div>
+ </div>
+</section>
+
+<footer class="band">
+ <div class="wrap">
+  <h2>Prathamesh Rathi</h2>
+  <div class="contact"><span>prathameshrathi2005@gmail.com</span><a href="https://linkedin.com/in/prathameshrathi7" target="_blank" rel="noopener">linkedin.com/in/prathameshrathi7</a></div>
+  <p class="note" style="flex-basis:100%;margin:0">Independent educational projects, completed November 2026. Not investment advice. Market data as of the dates shown in each file.</p>
+ </div>
+</footer>
+
+<script>
+{
+const F = f => 'files/' + f;
+const groups = [
+ {id:'equity', name:'Equity research: Bajel Projects', blurb:'A full coverage package on Bajel Projects, a Bajaj Group power-transmission EPC company: model, report, comps and pitch. All four reach the same verdict from different directions.', items:[
+  {t:'Three-statement model and DCF', meta:'Bajel Projects &middot; valuation date 31-Mar-2026', fig:'₹155', cap:'blended DCF value per share (bull ₹268, bear ₹52)',
+   what:'Order-book-driven revenue build, full income statement, balance sheet and cash flow, unlevered free cash flow, WACC, and DCF by perpetuity growth and exit multiple, with a Base/Bull/Bear switch.',
+   find:['Perpetuity method gives ₹125 and exit multiple ₹185, blended to ₹155.','The value hinges on EBITDA margin recovering from ~3.6% and on working capital, not on order intake.'],
+   tags:['3-statement','DCF','WACC','Scenarios'], files:[['Excel model','Bajel_Projects_3Statement_DCF_Model.xlsx','xlsx']]},
+  {t:'Equity research report', meta:'Bajel Projects &middot; priced 13-Nov-2026 &middot; 30 pages', fig:'HOLD', cap:'target ₹155 vs ₹160.74 share price',
+   what:'Initiation-style report: business model, ₹5,001 cr order book, industry (₹9.15 lakh cr transmission capex to 2032), financial analysis, valuation, catalysts and risks.',
+   find:['Record order book (~2.5x FY26 revenue) but EBITDA margin ~3.6% vs peer median ~9%.','Receivables of 214 days and 64% of revenue from POWERGRID cap the upside; upgrade triggers are spelled out.'],
+   tags:['Industry analysis','Financial analysis','Report writing'], files:[['Report (PDF)','Bajel_Projects_Equity_Research_Report.pdf','pdf']]},
+  {t:'Comparable companies analysis', meta:'Bajel vs KEC, KPIL, Skipper, Transrail &middot; 13-Nov-2026', fig:'66x vs 20x', cap:'Bajel trailing P/E vs peer median',
+   what:'Last-twelve-month financials from quarterly results, trading multiples, peer quartiles, benchmarking of growth, margins and working capital, implied valuation and a football field.',
+   find:['Peer-median EV/EBITDA and P/E imply only ~₹58 per share on today\'s earnings.','Applying peer multiples to a FY28 margin-recovery case gives ~₹136: the price already discounts most of the recovery.'],
+   tags:['Trading comps','LTM build','Football field'], files:[['Excel model','Bajel_Projects_Comparable_Companies_Analysis.xlsx','xlsx']]},
+  {t:'Stock pitch deck', meta:'Bajel Projects &middot; pitchbook format', fig:'24 slides', cap:'investment-banking-style stock pitch',
+   what:'A pitchbook following the CFI structure: company, industry, financial analysis, valuation (DCF and comps), recommendation, catalysts and risks, with a progress tracker.',
+   find:['One-slide executive summary: HOLD, target ₹155, bull ₹268 / bear ₹52.','Clear upgrade and downgrade triggers tied to margins and receivables.'],
+   tags:['PowerPoint','Storytelling','Pitchbook'], files:[['Pitch deck (PDF)','Bajel_Projects_Stock_Pitch.pdf','pdf']], img:['pitch.jpg','Title slide of the Bajel Projects stock pitch']}
+ ]},
+ {id:'deals', name:'Transactions', blurb:'Three real Indian deals modelled from their offer documents, then checked against what actually happened.', items:[
+  {t:'LBO model: KKR buyout of J.B. Chemicals', meta:'Entry Aug-2020 &middot; exit via sale to Torrent', fig:'4.4x', cap:'KKR\'s realised money multiple, rebuilt from cash flows (33.5% IRR)',
+   what:'Sources and uses, revolver and term debt with cash sweep, returns analysis with IRR and money multiple, value-creation bridge and sensitivities, with Underwriting / Actual / Downside cases.',
+   find:['Underwriting case: 2.9x and 19.4% IRR; downside 1.15x.','Reconstructed actual cash flows give 4.4x and a 33.5% XIRR, close to the ~36% KKR reported.'],
+   tags:['LBO','Debt schedule','IRR / XIRR'], files:[['Excel model','JB_Chemicals_KKR_LBO_Model.xlsx','xlsx']]},
+  {t:'Merger model: Torrent Pharma acquires J.B. Chemicals', meta:'Two-phase deal: cash buyout, then share swap', fig:'+16.5%', cap:'year-4 cash EPS accretion (reported EPS −37.5% in year 1)',
+   what:'Deal terms, management projections from the valuation reports, purchase price allocation with brand intangibles and deferred tax, pro forma EPS, swap-ratio check, sensitivities and model-vs-actual.',
+   find:['Brand amortisation makes reported EPS dilutive (−37.5% year 1 to −4.0% year 4) while cash EPS turns accretive from year 2.','Model H1 FY27 net profit ₹1,050 cr vs ₹1,100 cr actual; PPA intangibles ₹21,950 cr vs ₹20,691 cr reported.'],
+   tags:['M&A','PPA','Accretion / dilution'], files:[['Excel model','Torrent_JB_Chemicals_Merger_Model.xlsx','xlsx']]},
+  {t:'IPO analysis: Tonbo Imaging', meta:'Price band ₹665–700 &middot; listed 23-Oct-2026', fig:'78.8x', cap:'P/E at the top of the band; verdict: listing gains only',
+   what:'Offer structure (100% offer for sale), sellers\' cost of acquisition, financials, peer valuation, reverse DCF, weighted red-flag scorecard and a post-listing review.',
+   find:['Priced ~8% below peers, but the reverse DCF needed 28.8% revenue growth to FY31; red-flag score 3.8/5.','It listed +65.7% and was +108% by 20-Nov-2026: the listing call worked; the long-term risks remain untested.'],
+   tags:['IPO','Reverse DCF','Red-flag scorecard'], files:[['Excel model','Tonbo_Imaging_IPO_Analysis.xlsx','xlsx']]}
+ ]},
+ {id:'credit', name:'Credit and fixed income', blurb:'A corporate credit review and a sovereign yield-curve model.', items:[
+  {t:'Credit analysis: Vedanta after the demerger', meta:'Ratings to Sep-2026', fig:'AA', cap:'my scorecard rating vs the agencies\' AA+',
+   what:'Historical credit metrics, rating journey, entity-by-entity debt after the demerger, holding-company (VRL) dependence, stress test against covenant triggers and a rating scorecard.',
+   find:['FY23 dividends were 114% of operating cash flow, driven by holdco debt service.','Stressed adjusted leverage rises to 1.29x, well inside the 2.5x trigger; Hindustan Zinc stake covers holdco debt 3.22x.'],
+   tags:['Credit metrics','Stress test','Rating scorecard'], files:[['Excel model','Vedanta_Credit_Analysis.xlsx','xlsx']]},
+  {t:'G-sec yield curve and bond analytics', meta:'CCIL benchmark yields &middot; 20-Nov-2026', fig:'8.4 bp', cap:'Nelson-Siegel fit error across the G-sec curve',
+   what:'Curve fitting, bootstrapped zero and forward curves, bond pricing from cash flows, duration, convexity and DV01, a duration-matched bullet vs barbell under 10 scenarios, and credit spreads.',
+   find:['6.53% GS 2031 trades 14 bp cheap to the curve and 6.68% GS 2040 14 bp rich; the 5y5y forward is 7.66%.','The barbell has twice the convexity and 1.7 bp more yield, but loses ₹2.7–3.0 cr per ₹100 cr when the curve steepens.'],
+   tags:['Nelson-Siegel','Bootstrapping','Duration / convexity'], files:[['Excel model','India_GSec_Yield_Curve_Bond_Analytics.xlsx','xlsx']]}
+ ]},
+ {id:'quant', name:'Derivatives, quant and data', blurb:'Option pricing on the live NIFTY chain, a Python portfolio backtest, and a Power BI dashboard on top of both.', items:[
+  {t:'NIFTY options pricing model', meta:'NSE option chain &middot; 20-Nov-2026 close', fig:'11.8% → 19.2%', cap:'at-the-money vs 25,000-put implied vol: the NIFTY skew',
+   what:'Black-Scholes with all Greeks, a 50-step binomial tree (European and American), Newton-Raphson implied vol for 49 strikes, model vs market, five option strategies and Greeks sensitivity.',
+   find:['Put-call parity implies a forward of 25,741, ~70 pts below the official close; pricing off it fixes NSE\'s inconsistent call/put IVs.','In trading time, at-the-money IV (17.0%) sits above 20-day realised vol (14.8%): sellers earn a premium.'],
+   tags:['Black-Scholes','Binomial tree','Implied volatility'], files:[['Excel model','NIFTY_Options_Pricing_Model.xlsx','xlsx']]},
+  {t:'Portfolio optimisation and backtest (Python)', meta:'12 NIFTY large caps + gold &middot; Nov-2019 to Nov-2026', fig:'0.81 vs 0.17', cap:'out-of-sample Sharpe: max-Sharpe vs NIFTY 50',
+   what:'Efficient frontier, CAPM betas and alphas, VaR and CVaR (historical, parametric, Monte Carlo) with a Kupiec back-test, and a walk-forward backtest after costs with robustness checks.',
+   find:['Max-Sharpe returned 16.9% a year vs 7.5% for the NIFTY price index; its edge survives removing gold (Sharpe 0.74).','Normal-distribution models understate 99% expected shortfall by ~35% because of fat tails.'],
+   tags:['Python','Markowitz','Walk-forward backtest'], files:[['Code, notebook and data (zip)','nifty-portfolio-optimisation.zip','zip']], img:['backtest.png','Out-of-sample growth of ₹100 by strategy, Nov-2021 to Nov-2026']},
+  {t:'Power BI dashboard', meta:'Four pages: performance, portfolio, risk, fixed income', fig:'4 pages', cap:'interactive dashboard on a star-schema model',
+   what:'A star-schema data model (11 tables) over the backtest and the G-sec curve, with DAX measures that recompute CAGR, Sharpe, Sortino, drawdown and beta for any strategy and date range.',
+   find:['One strategy slicer and a risk-free-rate slider drive every visual.','Each page reconciles to the Python notebook and the bond workbook; the data model is downloadable below.'],
+   tags:['Power BI','DAX','Data modelling'], files:[['Data model','Portfolio_Dashboard_Data.xlsx','xlsx']]}
+ ]}
+];
+let n = 0;
+for (const g of groups) for (const p of g.items) p.n = ++n;
+const pad = x => String(x).padStart(2, '0');
+document.getElementById('ledger').innerHTML = groups.map(g => `
+ <div class="group"><h2>${g.name.split(':')[0]}</h2>${g.items.map(p => `
+  <a class="tile" href="#p${p.n}"><div class="n">${pad(p.n)}</div><div class="t">${p.t}</div><div class="fig">${p.fig}</div><div class="cap">${p.cap}</div></a>`).join('')}
+ </div>`).join('');
+const label = {xlsx:'Excel', pdf:'PDF', zip:'ZIP'};
+document.getElementById('details').innerHTML = groups.map(g => `
+ <section class="band sec" id="${g.id}"><div class="wrap">
+  <h2>${g.name}</h2><p>${g.blurb}</p>
+  ${g.items.map(p => `
+  <article class="proj" id="p${p.n}">
+   <div><div class="n">${pad(p.n)}</div><h3>${p.t}</h3><div class="meta">${p.meta}</div><p style="margin-top:10px">${p.what}</p></div>
+   <div><ul>${p.find.map(f => `<li>${f}</li>`).join('')}</ul>${p.img ? `<img class="shot" src="${p.img[0]}" alt="${p.img[1]}" loading="lazy">` : ''}</div>
+   <div><div class="tags">${p.tags.map(t => `<span>${t}</span>`).join('')}</div><div class="dl">${p.files.map(f => `<a href="${F(f[1])}" download>${f[0]}<small>${label[f[2]]}</small></a>`).join('')}${p.link ? `<a href="${p.link[1]}" target="_blank" rel="noopener">${p.link[0]}<small>Doc</small></a>` : ''}</div></div>
+  </article>`).join('')}
+ </div></section>`).join('');
+}
+</script>
+</body>
+</html>
